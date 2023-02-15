@@ -11,7 +11,10 @@ export const Results = () => {
     if (searchTerm) {
       if (location.pathname === "/videos") {
         getResults(`/search/?query=${searchTerm} videos`);
-      } else {
+      }else if(location.pathname === "/images"){
+        getResults(`/imagesearch/?query=${searchTerm}&num=40`);
+      }
+      else {
         getResults(`${location.pathname}/?query=${searchTerm}&num=40`);
       }
     }

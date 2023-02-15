@@ -22,7 +22,7 @@ export const ResultContextProvider = ({ children }) => {
 
     const data = await response.json();
 
-    if (type.includes("/imagesearch")) {
+    if (type.includes("/images")) {
       setResults(data.items);
     } else if (type.includes("/news")) {
       setResults(data.items);
