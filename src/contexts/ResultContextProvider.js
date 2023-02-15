@@ -10,7 +10,7 @@ export const ResultContextProvider = ({ children }) => {
 
   const getResults = async (type) => {
     setIsLoading(true);
-    const response = await fetch(`${baseUrl}/search/?query=elon`, {
+    const response = await fetch(`${baseUrl}${type}`, {
       method: "GET",
       headers: {
         "x-user-agent": "desktop",
@@ -18,15 +18,14 @@ export const ResultContextProvider = ({ children }) => {
         "x-rapidapi-host": "google-search72.p.rapidapi.com",
         "x-rapidapi-key": process.env.REACT_APP_API_KEY,
       },
-      
     });
 
     const data = await response.json();
 
     if (type.includes("/images")) {
-      setResults(data.image_results);
+      setResults(data.items);
     } else if (type.includes("/news")) {
-      setResults(data.entries);
+      setResults(data.items);
     } else {
       setResults(data.items);
     }
