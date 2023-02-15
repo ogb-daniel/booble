@@ -10,7 +10,7 @@ export const ResultContextProvider = ({ children }) => {
 
   const getResults = async (type) => {
     setIsLoading(true);
-    const response = await fetch(`${baseUrl}${type}`, {
+    const response = await fetch(`${baseUrl}/search/q=elon`, {
       method: "GET",
       headers: {
         "x-user-agent": "desktop",
