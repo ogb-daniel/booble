@@ -28,7 +28,7 @@ export const ResultContextProvider = ({ children }) => {
     } else if (type.includes("/news")) {
       setResults(data.entries);
     } else {
-      setResults(data.results);
+      setResults(data.items);
     }
 
     setIsLoading(false);
