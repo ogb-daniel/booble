@@ -10,7 +10,7 @@ export const ResultContextProvider = ({ children }) => {
 
   const getResults = async (type) => {
     setIsLoading(true);
-    const response = await fetch(`${baseUrl}/search/q=elon`, {
+    const response = await fetch(`${baseUrl}/search/?q=elon`, {
       method: "GET",
       headers: {
         "x-user-agent": "desktop",
@@ -18,6 +18,7 @@ export const ResultContextProvider = ({ children }) => {
         "x-rapidapi-host": "google-search72.p.rapidapi.com",
         "x-rapidapi-key": process.env.REACT_APP_API_KEY,
       },
+      
     });
 
     const data = await response.json();
